@@ -1,0 +1,18 @@
+genrule(
+    name = 'test',
+    srcs = [
+        'index.js',
+    ],
+    cmd = 'node ./index.js > $OUT',
+    out = 'test.txt',
+    visibility = ["PUBLIC"],
+)
+
+js_library(
+    name = "lib1",
+    srcs = ["index.js"],
+    worker = "//worker:packager_worker",
+    deps = [
+        "//packages/lib2:fruit",
+    ],
+)

@@ -1,0 +1,27 @@
+sh_binary(
+    name = 'packager_worker_exe',
+    main = 'packager_worker.sh',
+    visibility = [
+        'PUBLIC',
+    ],
+)
+
+worker_tool(
+    name = 'packager_worker',
+    exe = ':packager_worker_exe',
+    visibility = ['PUBLIC'],
+)
+
+sh_binary(
+    name = 'yarn_worker_exe',
+    main = 'yarn_worker.sh',
+    visibility = [
+        'PUBLIC',
+    ],
+)
+
+worker_tool(
+    name = 'yarn_worker',
+    exe = ':yarn_worker_exe',
+    visibility = ['PUBLIC'],
+)
